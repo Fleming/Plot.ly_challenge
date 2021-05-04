@@ -19,7 +19,7 @@ function buildMetadata(sample) {
       panel.append("h6").text(`${key}: ${value}`);
     });
 
-  //buildGauge(result.wfreq)
+  
 
 
   });
@@ -33,11 +33,11 @@ function buildGaugeChart(sample) {
   d3.json("samples.json").then(data =>{
 
     var objs = data.metadata;
-    //console.log("objs", objs);
+  
 
     var matchedSampleObj = objs.filter(sampleData => 
       sampleData["id"] === parseInt(sample));
-    //console.log("buildGaugeChart matchedSampleObj", matchedSampleObj);
+    
 
     gaugeChart(matchedSampleObj[0]);
  });   
@@ -119,7 +119,7 @@ function gaugeChart(data) {
 
 
 
-//=============Bubble&Bar Chart Functions=======================//
+//Bubble&Bar Chart Functions
 
 function buildCharts(sample) {
 
@@ -134,9 +134,9 @@ d3.json("samples.json").then((data) => {
   var labels = result.otu_labels;
   var values = result.sample_values;
 
-//======================================================//
-//================ Build a BUBBLE Chart=================// 
-//======================================================//
+
+// Build a BUBBLE Chart
+
 
   var LayoutBubble = {
     margin: { t: 0 },
@@ -160,9 +160,9 @@ d3.json("samples.json").then((data) => {
   Plotly.newPlot("bubble", DataBubble, LayoutBubble);
 
 
-//=========================================================//
-//===============  Build a BAR Chart=======================//
-//=========================================================// 
+
+// Build a BAR Chart
+
   var bar_data =[
     {
       y:ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
@@ -184,7 +184,7 @@ d3.json("samples.json").then((data) => {
 }
  
 
-//============= Function init =======================//
+//Function init 
 
 function init() {
 // Grab a reference to the dropdown select element
